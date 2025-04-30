@@ -21,8 +21,14 @@ def submit(request):
         height = request.POST['height']
         gender = request.POST['gender']
         print(name, email, dob, phone, weight ,height, gender)
-        Person.objects.create(name=names, email=email, dob=dob, phone=phone,weight=weight, height=height, gender=gender)
+        Person.objects.create(name=name, email=email, dob=dob, phone=phone,weight=weight, height=height, gender=gender)
         count = Person.objects.all().count()
         print(f"You have {count} records")
     return redirect('home-page')
 
+def people(request):
+    data = Person.objects.all()
+    return render(request,'list.html',{'data':data})
+def details(request,id):
+    person = Person.objects.get(id=id)
+    return render(request,'details.html',{'person':person})

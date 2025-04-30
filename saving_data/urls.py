@@ -19,6 +19,8 @@ from django.urls import path
 from  my_app import views
 urlpatterns = [
     path('', views.home, name='home-page'),
+    path('people', views.people, name='people-page'),
+    path('details/<int:id>', views.details, name='details-page'),
 
     path('submit', views.submit, name='submit-page'),
 

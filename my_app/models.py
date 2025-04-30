@@ -9,8 +9,8 @@ class Person(models.Model):
     email = models.EmailField(max_length=100, unique=True)
     phone = models.CharField(max_length=11, unique=True)
     dob = models.DateField()
-    weight = models.IntegerField(default=0)
-    height = models.IntegerField(default=0)
-    gender = models.CharField(default=0)
+    weight = models.IntegerField(default=50)
+    height = models.FloatField(default=1.60)
+    gender = models.CharField(default="Male", max_length=20)
     class Meta:
         db_table = 'people'
